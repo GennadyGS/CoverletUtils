@@ -1,10 +1,11 @@
 param (
-    $testAssembly = ".\bin\Debug\netcoreapp3.1\*.dll",
+    $framework = "net6.0",
     $resultPath="./TestResult/",
     $includeNameSpaces,
     $excludeNameSpaces
 )
 
+$testAssembly = ".\bin\Debug\$framework\*.dll"
 $reportPath="$resultPath/Report"
 
 if ($includeNameSpaces) {
@@ -22,6 +23,10 @@ else {
 }
 
 If (Test-Path $resultPath) { Remove-Item $resultPath -Recurse }
+
+dotnet tool update -g coverlet.console
+dotnet tool update -g dotnet-reportgenerator-globaltool
+
 coverlet $testAssembly `
     --target "dotnet" `
     --targetargs "test --no-build" `
