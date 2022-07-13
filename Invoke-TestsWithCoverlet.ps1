@@ -1,4 +1,4 @@
-﻿Function Invoke-TestsWithCoverletReport {
+﻿Function Invoke-TestsWithCoverlet {
     param (
         $framework = "net6.0",
         $resultPath = "./TestResult/",

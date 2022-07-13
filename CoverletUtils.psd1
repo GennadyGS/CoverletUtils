@@ -54,7 +54,7 @@
     # NestedModules = @()
 
     # Functions to export from this module
-    FunctionsToExport = @('Invoke-TestsWithCoverletReport')
+    FunctionsToExport = @('Invoke-TestsWithCoverlet')
 
     # Cmdlets to export from this module
     # CmdletsToExport = '*'
