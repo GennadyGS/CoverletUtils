@@ -1,9 +1,11 @@
-﻿dotnet tool update -g coverlet.console
+﻿$ScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
+
+dotnet tool update -g coverlet.console
 dotnet tool update -g dotnet-reportgenerator-globaltool
 
 #Get public and private function definition files.
-$Public = Get-ChildItem $PSScriptRoot\*.ps1 -ErrorAction SilentlyContinue
-#$Private = Get-ChildItem $PSScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue
+$Public = Get-ChildItem $ScriptRoot\*.ps1 -ErrorAction SilentlyContinue
+#$Private = Get-ChildItem $ScriptRoot\Private\*.ps1 -ErrorAction SilentlyContinue
 
 #Dot source the files
 Foreach ($import in @($Public)) {
