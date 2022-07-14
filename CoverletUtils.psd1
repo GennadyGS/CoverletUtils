@@ -1,9 +1,12 @@
 ﻿@{
     # Script module or binary module file associated with this manifest.
-    ModuleToProcess   = 'CoverletUtils.psm1'
+    # RootModule = ''
 
     # Version number of this module.
     ModuleVersion     = '0.0.1'
+
+    # Supported PSEditions
+    CompatiblePSEditions = @('Core', 'Desk')
 
     # ID used to uniquely identify this module
     GUID              = '7f74140c-8e12-4e26-bda2-04d5bbc0df25'
@@ -14,23 +17,26 @@
     # Company or vendor of this module
     CompanyName       = ''
 
+    # Copyright statement for this module
+    Copyright         = '(c) Gennadii Saltyshchak. All rights reserved.'
+
     # Description of the functionality provided by this module
     Description       = 'Utilities for running code coverage tool Coverlet'
 
-    # Minimum version of the Windows PowerShell engine required by this module
+    # Minimum version of the PowerShell engine required by this module
     PowerShellVersion = '5.0'
 
-    # Name of the Windows PowerShell host required by this module
+    # Name of the PowerShell host required by this module
     # PowerShellHostName = ''
 
-    # Minimum version of the Windows PowerShell host required by this module
+    # Minimum version of the PowerShell host required by this module
     # PowerShellHostVersion = ''
 
-    # Minimum version of Microsoft .NET Framework required by this module
+    # Minimum version of Microsoft .NET Framework required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
     # DotNetFrameworkVersion = ''
 
-    # Minimum version of the common language runtime (CLR) required by this module
-    # CLRVersion = ''
+    # Minimum version of the common language runtime (CLR) required by this module. This prerequisite is valid for the PowerShell Desktop edition only.
+    # ClrVersion = ''
 
     # Processor architecture (None, X86, Amd64) required by this module
     # ProcessorArchitecture = ''
@@ -53,10 +59,10 @@
     # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
     # NestedModules = @()
 
-    # Functions to export from this module
+    # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
     # FunctionsToExport = '*'
 
-    # Cmdlets to export from this module
+    # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
     # CmdletsToExport = '*'
 
     # Variables to export from this module
@@ -64,6 +70,9 @@
 
     # Aliases to export from this module
     # AliasesToExport = '*'
+
+    # DSC resources to export from this module
+    # DscResourcesToExport = @()
 
     # List of all modules packaged with this module
     # ModuleList = @()
@@ -82,6 +91,21 @@
 
             # A URL to the main website for this project.
             ProjectUri = 'https://github.com/GennadyGS/CoverletUtils'
+
+            # A URL to an icon representing this module.
+            # IconUri = ''
+
+            # ReleaseNotes of this module
+            # ReleaseNotes = ''
+
+            # Prerelease string of this module
+            # Prerelease = ''
+
+            # Flag to indicate whether the module requires explicit user acceptance for install/update/save
+            # RequireLicenseAcceptance = $false
+
+            # External dependent modules of this module
+            # ExternalModuleDependencies = @()
         } # End of PSData hashtable
 
     } # End of PrivateData hashtable
