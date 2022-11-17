@@ -31,7 +31,7 @@ coverlet $testAssembly `
     --target "dotnet" `
     --targetargs "test --no-build" `
     --format cobertura `
-    --output $resultPath `
+    --output $resultPath/ `
     --include $includeParam `
     --exclude $excludeParam
 
