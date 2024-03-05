@@ -1,12 +1,14 @@
 param (
+    $projectPath = ".",
     $framework = "net6.0",
-    $resultPath="./TestResult/",
+    $resultDirectory="TestResult",
     $includeNameSpaces,
     $excludeNameSpaces
 )
 
-$testAssembly = ".\bin\Debug\$framework\*.dll"
-$reportPath="$resultPath/Report"
+$testAssembly = "$projectPath\bin\Debug\$framework\*.dll"
+$resultPath = Join-Path $projectPath $resultDirectory
+$reportPath = Join-Path $resultPath "Report"
 
 if ($includeNameSpaces) {
     $includeParam = $includeNameSpaces
@@ -22,18 +24,18 @@ else {
     $excludeParam = "[]"
 }
 
-If (Test-Path $resultPath) { Remove-Item $resultPath -Recurse }
+If (Test-Path $resultDirectory) { Remove-Item $resultDirectory -Recurse }
 
 dotnet tool update -g coverlet.console
 dotnet tool update -g dotnet-reportgenerator-globaltool
 
 coverlet $testAssembly `
     --target "dotnet" `
-    --targetargs "test --no-build" `
+    --targetargs "test $projectPath --no-build" `
     --format cobertura `
-    --output $resultPath/ `
+    --output $resultPath\ `
     --include $includeParam `
     --exclude $excludeParam
 
 reportgenerator "-reports:$resultPath\coverage.cobertura.xml" "-targetdir:$reportPath"
-start $reportPath\index.html
+Start-Process $reportPath\index.html
