@@ -8,7 +8,7 @@ param (
     $arguments
 )
 
-& $PSScriptRoot\DotNetCommandWithCoverletReport.ps1 test `
+& $PSScriptRoot\DotNetCommandWithCoverletReport.ps1 run `
     -projectPath $projectPath `
     -framework $framework `
     -configuration $configuration `
